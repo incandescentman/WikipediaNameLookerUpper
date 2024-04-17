@@ -8,10 +8,13 @@ WikipediaNameLookerUpper is a Python script that checks if a list of names have 
 
 2. ~known-names.txt~: This file contains a list of names that have Wikipedia pages along with their respective URLs. If a URL appears multiple times (i.e., if a name appears in different variations), only the first occurrence is kept, and subsequent duplicates are removed.
 
+** Development
 I wrote this script (i.e. I made claude 3 write this script) as part of the [[https://www.wikiportraits.org/][WikiPortraits]] initiative.
 
 Here's Claude developing the code:
 https://github.com/incandescentman/WikipediaNameLookerUpper/blob/main/claude-transcript.org
+
+[[https://github.com/incandescentman/WikipediaNameLookerUpper/raw/main/pythonscript.png][file:pythonscript.png]]
 
 ** Features
 - Reads a list of names from a text file
