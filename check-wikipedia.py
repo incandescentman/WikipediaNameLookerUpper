@@ -1,4 +1,13 @@
 import requests
+import re
+
+def check_name(firstname, lastname, url):
+    fullname_regex = fr"{firstname}.*{lastname}|{lastname}.*{firstname}"
+    match = re.search(fullname_regex, url, re.IGNORECASE)
+    if match:
+        return True
+    else:
+        return False
 
 def get_wikipedia_url(name):
     url = f"https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch={name}&srlimit=1"
@@ -13,7 +22,7 @@ def get_wikipedia_url(name):
             # Check if the name contains a space
             if ' ' in name:
                 first_name, last_name = name.split(' ', 1)
-                if first_name.lower() in page_title.lower() or last_name.lower() in page_title.lower():
+                if check_name(first_name, last_name, page_url):
                     return page_url
             else:
                 if name.lower() in page_title.lower():
