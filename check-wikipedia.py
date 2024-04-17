@@ -42,5 +42,23 @@ with open(output_file, 'w') as file, open(known_names_file, 'w') as known_file:
         else:
             file.write(f"{name} does not have a Wikipedia page.\n")
 
+# Read the known-names.txt file
+with open(known_names_file, 'r') as file:
+    lines = file.readlines()
+
+# Create a dictionary to store URLs and their corresponding lines
+url_dict = {}
+for line in lines:
+    url = line.strip().split(': ')[1]
+    if url in url_dict:
+        url_dict[url].append(line)
+    else:
+        url_dict[url] = [line]
+
+# Write the updated lines back to known-names.txt
+with open(known_names_file, 'w') as file:
+    for url, lines in url_dict.items():
+        file.write(lines[0])
+
 print(f"Results saved to {output_file}")
 print(f"Names with Wikipedia pages saved to {known_names_file}")
