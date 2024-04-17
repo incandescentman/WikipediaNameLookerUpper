@@ -31,13 +31,16 @@ names = [name.strip() for name in names]
 
 # Create a new file to store the results
 output_file = '/Users/jay/Downloads/ijf/links.txt'
+known_names_file = '/Users/jay/Downloads/ijf/known-names.txt'
 
-with open(output_file, 'w') as file:
+with open(output_file, 'w') as file, open(known_names_file, 'w') as known_file:
     for name in names:
         url = get_wikipedia_url(name)
         if url:
             file.write(f"{name} has a Wikipedia page: {url}\n")
+            known_file.write(f"{name}: {url}\n")
         else:
             file.write(f"{name} does not have a Wikipedia page.\n")
 
 print(f"Results saved to {output_file}")
+print(f"Names with Wikipedia pages saved to {known_names_file}")
