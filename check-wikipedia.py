@@ -1,46 +1,39 @@
 import requests
+from bs4 import BeautifulSoup
+import re
 
-def get_wikipedia_url(name):
-    url = f"https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch={name}&srlimit=1"
-    response = requests.get(url)
-    data = response.json()
+# Send a GET request to the Wikipedia page
+url = "https://en.wikipedia.org/wiki/Julia_Angwin"
+response = requests.get(url)
 
-    try:
-        if data['query']['search']:
-            page_title = data['query']['search'][0]['title']
-            page_url = f"https://en.wikipedia.org/wiki/{page_title.replace(' ', '_')}"
+# Parse the HTML content using BeautifulSoup
+soup = BeautifulSoup(response.content, 'html.parser')
 
-            # Check if the name contains a space
-            if ' ' in name:
-                first_name, last_name = name.split(' ', 1)
-                if first_name.lower() in page_title.lower() or last_name.lower() in page_title.lower():
-                    return page_url
-            else:
-                if name.lower() in page_title.lower():
-                    return page_url
-    except KeyError:
-        pass
-    return None
+# Find all the text within the <p> tags
+text = ' '.join([p.get_text() for p in soup.find_all('p')])
 
-# Read names from the text file
-with open('/Users/jay/Downloads/ijf/ijf.txt', 'r') as file:
-    names = file.readlines()
+# Use regular expressions to find names that are likely to be people's names
+name_regex = r'\b[A-Z][a-zA-Z\'\-]+\s+(?:[A-Z][a-zA-Z\'\-]+\s+)?[A-Z][a-zA-Z\'\-]+\b'
+matches = re.findall(name_regex, text)
 
-# Remove trailing newline characters from each name
-names = [name.strip() for name in names]
+# Open the files to write the output
+with open('links.txt', 'w') as links_file, open('nonlinks.txt', 'w') as nonlinks_file:
+    unique_matches = set()  # Set to store unique matches
 
-# Create a new file to store the results
-output_file = '/Users/jay/Downloads/ijf/links.txt'
-known_names_file = '/Users/jay/Downloads/ijf/known-names.txt'
+    for match in matches:
+        # Check if the match is already processed (either in original or reversed order)
+        if match in unique_matches or ' '.join(match.split()[::-1]) in unique_matches:
+            continue
 
-with open(output_file, 'w') as file, open(known_names_file, 'w') as known_file:
-    for name in names:
-        url = get_wikipedia_url(name)
-        if url:
-            file.write(f"{name} has a Wikipedia page: {url}\n")
-            known_file.write(f"{name}: {url}\n")
+        unique_matches.add(match)  # Add the match to the set of unique matches
+
+        # Check if a Wikipedia page exists for the name
+        name_url = f"https://en.wikipedia.org/wiki/{match.replace(' ', '_')}"
+        name_response = requests.get(name_url)
+
+        if name_response.status_code == 200:
+            links_file.write(f"{match} has a Wikipedia page: {name_url}\n")
         else:
-            file.write(f"{name} does not have a Wikipedia page.\n")
+            nonlinks_file.write(f"{match} does not have a Wikipedia page.\n")
 
-print(f"Results saved to {output_file}")
-print(f"Names with Wikipedia pages saved to {known_names_file}")
+print("Output written to links.txt and nonlinks.txt.")
