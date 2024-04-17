@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="Jay Dixit" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+<!--/*--><![CDATA[/*><!--*/
+/* Global variables. */
+:root,
+::backdrop {
+  /* Set sans-serif & mono fonts */
+  --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
+    "Helvetica Neue", sans-serif;
+  --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  --standard-border-radius: 5px;
+
+  /* Default (light) theme */
+  --bg: #fff;
+  --accent-bg: #f5f7ff;
+  --text: #212121;
+  --text-light: #585858;
+  --border: #898EA4;
+  --accent: #0d47a1;
+  --code: #d81b60;
+  --preformatted: #444;
+  --marked: #ffdd33;
+  --disabled: #efefef;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root,
+  ::backdrop {
+    color-scheme: dark;
+    --bg: #212121;
+    --accent-bg: #2b2b2b;
+    --text: #dcdcdc;
+    --text-light: #ababab;
+    --accent: #ffb300;
+    --code: #f06292;
+    --preformatted: #ccc;
+    --disabled: #111;
+  }
+  /* Add a bit of transparency so light media isn't so glaring in dark mode */
+  img,
+  video {
+    opacity: 0.8;
+  }
+}
+
+/* Reset box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Reset default appearance */
+textarea,
+select,
+input,
+progress {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+html {
+  /* Set the font globally */
+  font-family: var(--sans-font);
+  scroll-behavior: smooth;
+}
+
+/* Make the body a nice central block */
+body {
+  color: var(--text);
+  background-color: var(--bg);
+  font-size: 1.15rem;
+  line-height: 1.5;
+  display: grid;
+  grid-template-columns: 1fr min(45rem, 90%) 1fr;
+  margin: 0;
+}
+body > * {
+  grid-column: 2;
+}
+
+/* Make the header bg full width, but the content inline with body */
+body > header {
+  background-color: var(--accent-bg);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  padding: 0 0.5rem 2rem 0.5rem;
+  grid-column: 1 / -1;
+}
+
+body > header h1 {
+  max-width: 1200px;
+  margin: 1rem auto;
+}
+
+body > header p {
+  max-width: 40rem;
+  margin: 1rem auto;
+}
+
+/* Add a little padding to ensure spacing is correct between content and header > nav */
+main {
+  padding-top: 1.5rem;
+}
+
+body > footer {
+  margin-top: 4rem;
+  padding: 2rem 1rem 1.5rem 1rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+/* Format headers */
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.6rem;
+  margin-top: 3rem;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-top: 3rem;
+}
+
+h4 {
+  font-size: 1.44rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+}
+
+h6 {
+  font-size: 0.96rem;
+}
+
+/* Prevent long strings from overflowing container */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* Fix line height when title wraps */
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+}
+
+/* Reduce header size on mobile */
+@media only screen and (max-width: 720px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2.1rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Format links & buttons */
+a,
+a:visited {
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+button,
+[role="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+label[type="button"] {
+  border: none;
+  border-radius: var(--standard-border-radius);
+  background-color: var(--accent);
+  font-size: 1rem;
+  color: var(--bg);
+  padding: 0.7rem 0.9rem;
+  margin: 0.5rem 0;
+
+  /* Ensure buttons use correct font */
+  font-family: inherit;
+}
+
+button[disabled],
+[role="button"][aria-disabled="true"],
+input[type="submit"][disabled],
+input[type="reset"][disabled],
+input[type="button"][disabled],
+input[type="checkbox"][disabled],
+input[type="radio"][disabled],
+select[disabled] {
+  cursor: not-allowed;
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled,
+button[disabled] {
+  cursor: not-allowed;
+  background-color: var(--disabled);
+  color: var(--text-light)
+}
+
+input[type="range"] {
+  padding: 0;
+}
+
+/* Set the cursor to '?' on an abbreviation and style the abbreviation to show that there is more information underneath */
+abbr[title] {
+  cursor: help;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+
+button:enabled:hover,
+[role="button"]:not([aria-disabled="true"]):hover,
+input[type="submit"]:enabled:hover,
+input[type="reset"]:enabled:hover,
+input[type="button"]:enabled:hover,
+label[type="button"]:hover {
+  filter: brightness(1.4);
+  cursor: pointer;
+}
+
+button:focus-visible:where(:enabled, [role="button"]:not([aria-disabled="true"])),
+input:enabled:focus-visible:where(
+  [type="submit"],
+  [type="reset"],
+  [type="button"]
+) {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* Format navigation */
+header > nav {
+  font-size: 1rem;
+  line-height: 2;
+  padding: 1rem 0 0 0;
+}
+
+/* Use flexbox to allow items to wrap, as needed */
+header > nav ul,
+header > nav ol {
+  align-content: space-around;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* List items are inline elements, make them behave more like blocks */
+header > nav ul li,
+header > nav ol li {
+  display: inline-block;
+}
+
+header > nav a,
+header > nav a:visited {
+  margin: 0 0.5rem 1rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--standard-border-radius);
+  color: var(--text);
+  display: inline-block;
+  padding: 0.1rem 1rem;
+  text-decoration: none;
+}
+
+header > nav a:hover,
+header > nav a.current,
+header > nav a[aria-current="page"] {
+  border-color: var(--accent);
+  color: var(--accent);
+  cursor: pointer;
+}
+
+/* Reduce nav side on mobile */
+@media only screen and (max-width: 720px) {
+  header > nav a {
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    line-height: 1;
+  }
+}
+
+/* Consolidate box styling */
+aside, details, pre, progress, blockquote {
+  background-color: var(--accent-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--standard-border-radius);
+  margin-bottom: 1rem;
+
+}
+
+aside {
+  font-size: 1rem;
+  width: 30%;
+  padding: 0 15px;
+  margin-inline-start: 15px;
+  float: right;
+}
+*[dir="rtl"] aside {
+  float: left;
+}
+
+/* Make aside full-width on mobile */
+@media only screen and (max-width: 720px) {
+  aside {
+    width: 100%;
+    float: none;
+    margin-inline-start: 0;
+  }
+}
+
+article, fieldset, dialog {
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: var(--standard-border-radius);
+  margin-bottom: 1rem;
+}
+
+article h2:first-child,
+section h2:first-child {
+  margin-top: 1rem;
+}
+
+section {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 1rem;
+  margin: 3rem 0;
+}
+
+/* Don't double separators when chaining sections */
+section + section,
+section:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+section:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+details {
+  padding: 0.7rem 1rem;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.7rem 1rem;
+  margin: -0.7rem -1rem;
+  word-break: break-all;
+}
+
+details[open] > summary + * {
+  margin-top: 0;
+}
+
+details[open] > summary {
+  margin-bottom: 0.5rem;
+}
+
+details[open] > :last-child {
+  margin-bottom: 0;
+}
+
+/* Format tables */
+table {
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+td,
+th {
+  border: 1px solid var(--border);
+  text-align: start;
+  padding: 0.5rem;
+}
+
+th {
+  background-color: var(--accent-bg);
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  /* Set every other cell slightly darker. Improves readability. */
+  background-color: var(--accent-bg);
+}
+
+table caption {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Format forms */
+textarea,
+select,
+input {
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--standard-border-radius);
+  box-shadow: none;
+  max-width: 100%;
+  display: inline-block;
+}
+label {
+  display: block;
+}
+textarea:not([cols]) {
+  width: 100%;
+}
+
+/* Add arrow to drop-down */
+select:not([multiple]) {
+  background-image: linear-gradient(45deg, transparent 49%, var(--text) 51%),
+    linear-gradient(135deg, var(--text) 51%, transparent 49%);
+  background-position: calc(100% - 15px), calc(100% - 10px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-inline-end: 25px;
+}
+*[dir="rtl"] select:not([multiple]) {
+  background-position: 10px, 15px;
+}
+
+/* checkbox and radio button style */
+input[type="checkbox"],
+input[type="radio"] {
+  vertical-align: middle;
+  position: relative;
+  width: min-content;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  display: inline-block;
+}
+
+input[type="radio"] {
+  border-radius: 100%;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: var(--accent);
+}
+
+input[type="checkbox"]:checked::after {
+  /* Creates a rectangle with colored right and bottom borders which is rotated to look like a check mark */
+  content: " ";
+  width: 0.18em;
+  height: 0.32em;
+  border-radius: 0;
+  position: absolute;
+  top: 0.05em;
+  left: 0.17em;
+  background-color: transparent;
+  border-right: solid var(--bg) 0.08em;
+  border-bottom: solid var(--bg) 0.08em;
+  font-size: 1.8em;
+  transform: rotate(45deg);
+}
+input[type="radio"]:checked::after {
+  /* creates a colored circle for the checked radio button  */
+  content: " ";
+  width: 0.25em;
+  height: 0.25em;
+  border-radius: 100%;
+  position: absolute;
+  top: 0.125em;
+  background-color: var(--bg);
+  left: 0.125em;
+  font-size: 32px;
+}
+
+/* Makes input fields wider on smaller screens */
+@media only screen and (max-width: 720px) {
+  textarea,
+  select,
+  input {
+    width: 100%;
+  }
+}
+
+/* Set a height for color input */
+input[type="color"] {
+  height: 2.5rem;
+  padding:  0.2rem;
+}
+
+/* do not show border around file selector button */
+input[type="file"] {
+  border: 0;
+}
+
+/* Misc body elements */
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 1rem auto;
+}
+
+mark {
+  padding: 2px 5px;
+  border-radius: var(--standard-border-radius);
+  background-color: var(--marked);
+  color: black;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--standard-border-radius);
+}
+
+figure {
+  margin: 0;
+  display: block;
+  overflow-x: auto;
+}
+
+figcaption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+cite {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-style: normal;
+}
+
+dt {
+    color: var(--text-light);
+}
+
+/* Use mono font for code elements */
+code,
+pre,
+pre span,
+kbd,
+samp, blockquote {
+  font-family: var(--mono-font);
+  color: var(--code);
+}
+
+kbd {
+  color: var(--preformatted);
+  border: 1px solid var(--preformatted);
+  border-bottom: 3px solid var(--preformatted);
+  border-radius: var(--standard-border-radius);
+  padding: 0.1rem 0.4rem;
+}
+
+pre, blockquote {
+  padding: 1rem 1.4rem;
+  max-width: 100%;
+  overflow: auto;
+  color: var(--preformatted);
+}
+
+/* Fix embedded code within pre */
+pre code {
+  color: var(--preformatted);
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Progress bars */
+/* Declarations are repeated because you */
+/* cannot combine vendor-specific selectors */
+progress {
+  width: 100%;
+}
+
+progress:indeterminate {
+  background-color: var(--accent-bg);
+}
+
+progress::-webkit-progress-bar {
+  border-radius: var(--standard-border-radius);
+  background-color: var(--accent-bg);
+}
+
+progress::-webkit-progress-value {
+  border-radius: var(--standard-border-radius);
+  background-color: var(--accent);
+}
+
+progress::-moz-progress-bar {
+  border-radius: var(--standard-border-radius);
+  background-color: var(--accent);
+  transition-property: width;
+  transition-duration: 0.3s;
+}
+
+progress:indeterminate::-moz-progress-bar {
+  background-color: var(--accent-bg);
+}
+
+dialog {
+  max-width: 40rem;
+  margin: auto;
+}
+
+dialog::backdrop {
+  background-color: var(--bg);
+  opacity: 0.8;
+}
+
+@media only screen and (max-width: 720px) {
+  dialog {
+    max-width: 100%;
+    margin: auto 1em;
+  }
+}
+
+/* Classes for buttons and notices */
+.button,
+.button:visited {
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  background: var(--accent);
+  font-size: 1rem;
+  color: var(--bg);
+  padding: 0.7rem 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.button:hover,
+.button:focus {
+  filter: brightness(1.4);
+  cursor: pointer;
+}
+
+.notice {
+  background: var(--accent-bg);
+  border: 2px solid var(--border);
+  border-radius: 5px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+
+
+
+
+
+
+
+
+
+/* add the hierarchy*/
+div.outline-text-3 {
+    margin-left:1em;
+}
+
+div.outline-text-4{
+    margin-left:0.2em
+
+}
+
+div.outline-text-5{
+    margin-left:3em
+}
+
+div.outline-text-6 {
+    margin-left:6em
+}
+
+
+div.outline-text-7 {
+    margin-left:9em
+}
+
+
+
+
+
+div dl dt::after {
+ content: ":";}
+
+
+h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 4em; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;   margin-bottom: 16px}
+
+
+
+h2
+{
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    font-size:3em;
+    line-height: 32px;
+    padding-bottom:0.2em;
+    margin-right:auto ;
+    margin-top:1em;
+  margin-bottom: 0.5em;
+  font-weight:bold;
+}
+
+
+h3 {
+  font-size: 1.3em;
+  margin-left:2em;
+}
+
+h4 {
+  font-size: 1.1em;
+    margin-left: 0.2em;
+}
+
+
+h5
+{
+margin-left:3em
+}
+
+h6
+{
+    margin-left:6em ;
+      font-size: 1em;
+}
+
+h7
+{
+    margin-left:9em ;
+      font-size: 1em;
+      font-weight:bold;
+}
+
+
+li ul li {
+  margin:0;
+}
+
+
+
+h1.title {
+  text-align:left;
+}
+
+
+div.outline-text-3
+{margin-left: 2.6em;}
+
+h1:first-letter, h2:first-letter, h3:first-letter, h4:first-letter, h5:first-letter
+{
+text-transform:capitalize;
+}
+
+div dl dt {
+  font-weight:700;
+}
+
+
+pre, blockquote {
+    border-radius: 8px;
+    padding: 0 1em 1em;
+    text-align: left;
+    white-space: normal;
+    word-wrap: break-word;
+word-wrap:normal!important;
+     white-space: pre-wrap;       /* css-3 */
+     word-wrap: normal;
+
+}
+
+
+div.outline-text-3 {
+    margin-left:5em;
+}
+
+
+
+li > p, li > ul, li > .inlinetask, li > dl {
+    margin-left: 0px;
+}
+
+dd > p, dd > ul, dd > .inlinetask, dd > dl {
+    margin-left: 0px;
+}
+
+
+div dl dt {
+  font-size:125%;
+
+}
+
+div dl dt::first-letter
+{
+  text-transform: capitalize;
+}
+
+
+div blockquote p {
+  font-size:200%;
+  margin:0;
+}
+
+h2 {
+  line-height: 1;
+}
+
+
+h1.title {
+  display:none;
+}
+
+
+pre.example, blockquote {
+  padding-top:1em
+}
+
+
+
+blockquote p {
+font-size: 1.15rem !important;
+margin:1em !important;
+}
+
+
+p.verse {
+    color: #111;
+    font: 14px Baskerville, "Palatino Linotype", "Times New Roman", Times, serif;
+    margin: auto;
+    padding: 20px 0;
+    text-align: left;
+    width: 390px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+/*]]>*/-->
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<div id="outline-container-org429a479" class="outline-2">
+<h2 id="org429a479">IJF Known Names</h2>
+<div class="outline-text-2" id="text-org429a479">
+<ol class="org-ol">
+<li>Mercy Abang: <a href="https://en.wikipedia.org/wiki/Mercy_Abang">https://en.wikipedia.org/wiki/Mercy_Abang</a></li>
+<li>Nazmul Ahasan: <a href="https://en.wikipedia.org/wiki/FRM_Nazmul_Ahasan">https://en.wikipedia.org/wiki/FRM_Nazmul_Ahasan</a></li>
+<li>Tomiwa Aladekomo: <a href="https://en.wikipedia.org/wiki/Tomiwa_Aladekomo">https://en.wikipedia.org/wiki/Tomiwa_Aladekomo</a></li>
+<li>Julia Angwin: <a href="https://en.wikipedia.org/wiki/Julia_Angwin">https://en.wikipedia.org/wiki/Julia_Angwin</a></li>
+<li>Ros Atkins: <a href="https://en.wikipedia.org/wiki/Ros_Atkins">https://en.wikipedia.org/wiki/Ros_Atkins</a></li>
+<li>Lina Attalah: <a href="https://en.wikipedia.org/wiki/Lina_Attalah">https://en.wikipedia.org/wiki/Lina_Attalah</a></li>
+<li>Charlie Beckett: <a href="https://en.wikipedia.org/wiki/Charlie_Beckett">https://en.wikipedia.org/wiki/Charlie_Beckett</a></li>
+<li>Ed Bice: <a href="https://en.wikipedia.org/wiki/Bice">https://en.wikipedia.org/wiki/Bice</a></li>
+<li>Jeremy Bowen: <a href="https://en.wikipedia.org/wiki/Jeremy_Bowen">https://en.wikipedia.org/wiki/Jeremy_Bowen</a></li>
+<li>Yael Braudo-Bahat: <a href="https://en.wikipedia.org/wiki/Yael_Braudo-Bahat">https://en.wikipedia.org/wiki/Yael_Braudo-Bahat</a></li>
+<li>Meredith Broussard: <a href="https://en.wikipedia.org/wiki/Meredith_Broussard">https://en.wikipedia.org/wiki/Meredith_Broussard</a></li>
+<li>David Campbell: <a href="https://en.wikipedia.org/wiki/David_Campbell">https://en.wikipedia.org/wiki/David_Campbell</a></li>
+<li>Samuel Chu: <a href="https://en.wikipedia.org/wiki/Samuel_Chu">https://en.wikipedia.org/wiki/Samuel_Chu</a></li>
+<li>Jesse Coburn: <a href="https://en.wikipedia.org/wiki/Jesse_Milton_Coburn">https://en.wikipedia.org/wiki/Jesse_Milton_Coburn</a></li>
+<li>Matt Cooke: <a href="https://en.wikipedia.org/wiki/Matt_Cooke">https://en.wikipedia.org/wiki/Matt_Cooke</a></li>
+<li>John Crowley: <a href="https://en.wikipedia.org/wiki/John_Crowley_(director)">https://en.wikipedia.org/wiki/John_Crowley_(director)</a></li>
+<li>Mukul Devichand: <a href="https://en.wikipedia.org/wiki/Mukul_Devichand">https://en.wikipedia.org/wiki/Mukul_Devichand</a></li>
+<li>Jin Ding: <a href="https://en.wikipedia.org/wiki/Duke_Ding_of_Jin">https://en.wikipedia.org/wiki/Duke_Ding_of_Jin</a></li>
+<li>Yousra Elbagir: <a href="https://en.wikipedia.org/wiki/Yousra_Elbagir">https://en.wikipedia.org/wiki/Yousra_Elbagir</a></li>
+<li>Robert Elder: <a href="https://en.wikipedia.org/wiki/Robert_Elder">https://en.wikipedia.org/wiki/Robert_Elder</a></li>
+<li>Anthony Feinstein: <a href="https://en.wikipedia.org/wiki/Anthony_Feinstein">https://en.wikipedia.org/wiki/Anthony_Feinstein</a></li>
+<li>Mary Fitzgerald: <a href="https://en.wikipedia.org/wiki/Mary_Fitzgerald">https://en.wikipedia.org/wiki/Mary_Fitzgerald</a></li>
+<li>Carine Fouteau: <a href="https://en.wikipedia.org/wiki/Carine_Fouteau">https://en.wikipedia.org/wiki/Carine_Fouteau</a></li>
+<li>Caoilfhionn Gallagher: <a href="https://en.wikipedia.org/wiki/Caoilfhionn_Gallagher">https://en.wikipedia.org/wiki/Caoilfhionn_Gallagher</a></li>
+<li>Manisha Ganguly: <a href="https://en.wikipedia.org/wiki/Manisha_Ganguly">https://en.wikipedia.org/wiki/Manisha_Ganguly</a></li>
+<li>Janine Gibson: <a href="https://en.wikipedia.org/wiki/Janine_Gibson">https://en.wikipedia.org/wiki/Janine_Gibson</a></li>
+<li>Mark Graham: <a href="https://en.wikipedia.org/wiki/Mark_Graham">https://en.wikipedia.org/wiki/Mark_Graham</a></li>
+<li>Nataliya Gumenyuk: <a href="https://en.wikipedia.org/wiki/Nataliya_Gumenyuk">https://en.wikipedia.org/wiki/Nataliya_Gumenyuk</a></li>
+<li>Frances Haugen: <a href="https://en.wikipedia.org/wiki/Frances_Haugen">https://en.wikipedia.org/wiki/Frances_Haugen</a></li>
+<li>Ron Haviv: <a href="https://en.wikipedia.org/wiki/Ron_Haviv">https://en.wikipedia.org/wiki/Ron_Haviv</a></li>
+<li>Jonathan Heawood: <a href="https://en.wikipedia.org/wiki/Jonathan_Heawood">https://en.wikipedia.org/wiki/Jonathan_Heawood</a></li>
+<li>Sophie Huet: <a href="https://en.wikipedia.org/wiki/Sophie_Huet">https://en.wikipedia.org/wiki/Sophie_Huet</a></li>
+<li>Nicole Jackson: <a href="https://en.wikipedia.org/wiki/Nicole_Jackson">https://en.wikipedia.org/wiki/Nicole_Jackson</a></li>
+<li>Jameel Jaffer: <a href="https://en.wikipedia.org/wiki/Jameel_Jaffer">https://en.wikipedia.org/wiki/Jameel_Jaffer</a></li>
+<li>Michael Jensen: <a href="https://en.wikipedia.org/wiki/Michael_Jensen">https://en.wikipedia.org/wiki/Michael_Jensen</a></li>
+<li>Mitra Kalita: <a href="https://en.wikipedia.org/wiki/S._Mitra_Kalita">https://en.wikipedia.org/wiki/S._Mitra_Kalita</a></li>
+<li>Jensen Michael: <a href="https://en.wikipedia.org/wiki/Michael_C._Jensen">https://en.wikipedia.org/wiki/Michael_C._Jensen</a></li>
+<li>Carine Kanimba: <a href="https://en.wikipedia.org/wiki/Carine_Kanimba">https://en.wikipedia.org/wiki/Carine_Kanimba</a></li>
+<li>Anup Kaphle: <a href="https://en.wikipedia.org/wiki/Anup_Kaphle">https://en.wikipedia.org/wiki/Anup_Kaphle</a></li>
+<li>Ritu Kapur: <a href="https://en.wikipedia.org/wiki/Ritu_Kapur">https://en.wikipedia.org/wiki/Ritu_Kapur</a></li>
+<li>Fergal Keane: <a href="https://en.wikipedia.org/wiki/Fergal_Keane">https://en.wikipedia.org/wiki/Fergal_Keane</a></li>
+<li>Jack Kelly: <a href="https://en.wikipedia.org/wiki/Jack_Kelly_(actor)">https://en.wikipedia.org/wiki/Jack_Kelly_(actor)</a></li>
+<li>Tara Kelly: <a href="https://en.wikipedia.org/wiki/Tara_Kelly">https://en.wikipedia.org/wiki/Tara_Kelly</a></li>
+<li>Yasir Khan: <a href="https://en.wikipedia.org/wiki/Yasir_Khan">https://en.wikipedia.org/wiki/Yasir_Khan</a></li>
+<li>Ivan Kolpakov: <a href="https://en.wikipedia.org/wiki/Ivan_Kolpakov">https://en.wikipedia.org/wiki/Ivan_Kolpakov</a></li>
+<li>Tina Lee: <a href="https://en.wikipedia.org/wiki/Tina_Lee">https://en.wikipedia.org/wiki/Tina_Lee</a></li>
+<li>Adam Levy: <a href="https://en.wikipedia.org/wiki/Adam_Levy">https://en.wikipedia.org/wiki/Adam_Levy</a></li>
+<li>Mark Little: <a href="https://en.wikipedia.org/wiki/Mark_Little">https://en.wikipedia.org/wiki/Mark_Little</a></li>
+<li>Moky Makura: <a href="https://en.wikipedia.org/wiki/Moky_Makura">https://en.wikipedia.org/wiki/Moky_Makura</a></li>
+<li>Mia Malan: <a href="https://en.wikipedia.org/wiki/Mia_Malan">https://en.wikipedia.org/wiki/Mia_Malan</a></li>
+<li>Jane Martinson: <a href="https://en.wikipedia.org/wiki/Jane_Martinson">https://en.wikipedia.org/wiki/Jane_Martinson</a></li>
+<li>George Montagu: <a href="https://en.wikipedia.org/wiki/George_Montagu">https://en.wikipedia.org/wiki/George_Montagu</a></li>
+<li>Robb Montgomery: <a href="https://en.wikipedia.org/wiki/Robb_Montgomery">https://en.wikipedia.org/wiki/Robb_Montgomery</a></li>
+<li>Chris Moran: <a href="https://en.wikipedia.org/wiki/Chris_Moran">https://en.wikipedia.org/wiki/Chris_Moran</a></li>
+<li>Darryl Morris: <a href="https://en.wikipedia.org/wiki/Darryl_Morris">https://en.wikipedia.org/wiki/Darryl_Morris</a></li>
+<li>Mitali Mukherjee: <a href="https://en.wikipedia.org/wiki/Mitali_Mukherjee">https://en.wikipedia.org/wiki/Mitali_Mukherjee</a></li>
+<li>Mukherjee Mitali: <a href="https://en.wikipedia.org/wiki/Mitali_Mukherjee_(journalist)">https://en.wikipedia.org/wiki/Mitali_Mukherjee_(journalist)</a></li>
+<li>Dmitry Muratov: <a href="https://en.wikipedia.org/wiki/Dmitry_Muratov">https://en.wikipedia.org/wiki/Dmitry_Muratov</a></li>
+<li>John-Allan Namu: <a href="https://en.wikipedia.org/wiki/John-Allan_Namu">https://en.wikipedia.org/wiki/John-Allan_Namu</a></li>
+<li>Sunita Narain: <a href="https://en.wikipedia.org/wiki/Sunita_Narain">https://en.wikipedia.org/wiki/Sunita_Narain</a></li>
+<li>Nic Newman: <a href="https://en.wikipedia.org/wiki/Nic_Newman">https://en.wikipedia.org/wiki/Nic_Newman</a></li>
+<li>Rasmus Nielsen: <a href="https://en.wikipedia.org/wiki/Rasmus_Nielsen">https://en.wikipedia.org/wiki/Rasmus_Nielsen</a></li>
+<li>Ron Nixon: <a href="https://en.wikipedia.org/wiki/Ron_Nixon">https://en.wikipedia.org/wiki/Ron_Nixon</a></li>
+<li>Karuna Nundy: <a href="https://en.wikipedia.org/wiki/Karuna_Nundy">https://en.wikipedia.org/wiki/Karuna_Nundy</a></li>
+<li>Bastian Obermayer: <a href="https://en.wikipedia.org/wiki/Bastian_Obermayer">https://en.wikipedia.org/wiki/Bastian_Obermayer</a></li>
+<li>Joshua Olufemi: <a href="https://en.wikipedia.org/wiki/Joshua_Olufemi">https://en.wikipedia.org/wiki/Joshua_Olufemi</a></li>
+<li>Taylor Owen: <a href="https://en.wikipedia.org/wiki/Owen_Taylor">https://en.wikipedia.org/wiki/Owen_Taylor</a></li>
+<li>Julie Pace: <a href="https://en.wikipedia.org/wiki/Julie_Pace">https://en.wikipedia.org/wiki/Julie_Pace</a></li>
+<li>Ruth Palmer: <a href="https://en.wikipedia.org/wiki/Ruth_Palmer">https://en.wikipedia.org/wiki/Ruth_Palmer</a></li>
+<li>Khadija Patel: <a href="https://en.wikipedia.org/wiki/Khadija_Patel">https://en.wikipedia.org/wiki/Khadija_Patel</a></li>
+<li>Miranda Patrucic: <a href="https://en.wikipedia.org/wiki/Miranda_Patrucic">https://en.wikipedia.org/wiki/Miranda_Patrucic</a></li>
+<li>Brianne Pfannenstiel: <a href="https://en.wikipedia.org/wiki/Brianne_Pfannenstiel">https://en.wikipedia.org/wiki/Brianne_Pfannenstiel</a></li>
+<li>Cheryl Phillips: <a href="https://en.wikipedia.org/wiki/Cheryl_Phillips">https://en.wikipedia.org/wiki/Cheryl_Phillips</a></li>
+<li>Julie Posetti: <a href="https://en.wikipedia.org/wiki/Julie_Posetti">https://en.wikipedia.org/wiki/Julie_Posetti</a></li>
+<li>Jesselyn Radack: <a href="https://en.wikipedia.org/wiki/Jesselyn_Radack">https://en.wikipedia.org/wiki/Jesselyn_Radack</a></li>
+<li>Courtney Radsch: <a href="https://en.wikipedia.org/wiki/Courtney_C._Radsch">https://en.wikipedia.org/wiki/Courtney_C._Radsch</a></li>
+<li>Paul Radu: <a href="https://en.wikipedia.org/wiki/Paul_Radu">https://en.wikipedia.org/wiki/Paul_Radu</a></li>
+<li>Megha Rajagopalan: <a href="https://en.wikipedia.org/wiki/Megha_Rajagopalan">https://en.wikipedia.org/wiki/Megha_Rajagopalan</a></li>
+<li>Gavin Rees: <a href="https://en.wikipedia.org/wiki/Gavin_Rees">https://en.wikipedia.org/wiki/Gavin_Rees</a></li>
+<li>Maria Ressa: <a href="https://en.wikipedia.org/wiki/Maria_Ressa">https://en.wikipedia.org/wiki/Maria_Ressa</a></li>
+<li>Jason Rezaian: <a href="https://en.wikipedia.org/wiki/Jason_Rezaian">https://en.wikipedia.org/wiki/Jason_Rezaian</a></li>
+<li>Laurent Richard: <a href="https://en.wikipedia.org/wiki/Laurent_Richard">https://en.wikipedia.org/wiki/Laurent_Richard</a></li>
+<li>Silvia Rivera: <a href="https://en.wikipedia.org/wiki/Silvia_Rivera_Cusicanqui">https://en.wikipedia.org/wiki/Silvia_Rivera_Cusicanqui</a></li>
+<li>Christopher Robbins: <a href="https://en.wikipedia.org/wiki/Christopher_Robbins">https://en.wikipedia.org/wiki/Christopher_Robbins</a></li>
+<li>Olga Rudenko: <a href="https://en.wikipedia.org/wiki/Olga_Rudenko">https://en.wikipedia.org/wiki/Olga_Rudenko</a></li>
+<li>Vincent Ryan: <a href="https://en.wikipedia.org/wiki/Vincent_Ryan">https://en.wikipedia.org/wiki/Vincent_Ryan</a></li>
+<li>Gerard Ryle: <a href="https://en.wikipedia.org/wiki/Gerard_Ryle">https://en.wikipedia.org/wiki/Gerard_Ryle</a></li>
+<li>Angela Saini: <a href="https://en.wikipedia.org/wiki/Angela_Saini">https://en.wikipedia.org/wiki/Angela_Saini</a></li>
+<li>Nivine Sandouka: <a href="https://en.wikipedia.org/wiki/Nivine_Sandouka">https://en.wikipedia.org/wiki/Nivine_Sandouka</a></li>
+<li>Anya Schiffrin: <a href="https://en.wikipedia.org/wiki/Anya_Schiffrin">https://en.wikipedia.org/wiki/Anya_Schiffrin</a></li>
+<li>Vivian Schiller: <a href="https://en.wikipedia.org/wiki/Vivian_Schiller">https://en.wikipedia.org/wiki/Vivian_Schiller</a></li>
+<li>David Schraven: <a href="https://en.wikipedia.org/wiki/David_Schraven">https://en.wikipedia.org/wiki/David_Schraven</a></li>
+<li>Tim Sebastian: <a href="https://en.wikipedia.org/wiki/Tim_Sebastian">https://en.wikipedia.org/wiki/Tim_Sebastian</a></li>
+<li>Barbara Serra: <a href="https://en.wikipedia.org/wiki/Barbara_Serra">https://en.wikipedia.org/wiki/Barbara_Serra</a></li>
+<li>Giovanni Severini: <a href="https://en.wikipedia.org/wiki/Giovanni_Severini">https://en.wikipedia.org/wiki/Giovanni_Severini</a></li>
+<li>Versha Sharma: <a href="https://en.wikipedia.org/wiki/Versha_Sharma">https://en.wikipedia.org/wiki/Versha_Sharma</a></li>
+<li>Daryna Shevchenko: <a href="https://en.wikipedia.org/wiki/Daryna_Shevchenko">https://en.wikipedia.org/wiki/Daryna_Shevchenko</a></li>
+<li>Dmitry Shishkin: <a href="https://en.wikipedia.org/wiki/Dmitry_Shishkin">https://en.wikipedia.org/wiki/Dmitry_Shishkin</a></li>
+<li>Evan Smith: <a href="https://en.wikipedia.org/wiki/Evan_Smith">https://en.wikipedia.org/wiki/Evan_Smith</a></li>
+<li>Marianna Spring: <a href="https://en.wikipedia.org/wiki/Marianna_Spring">https://en.wikipedia.org/wiki/Marianna_Spring</a></li>
+<li>Jeffrey Sterling: <a href="https://en.wikipedia.org/wiki/Jeffrey_Sterling">https://en.wikipedia.org/wiki/Jeffrey_Sterling</a></li>
+<li>Chris Stokel-Walker: <a href="https://en.wikipedia.org/wiki/Chris_Stokel-Walker">https://en.wikipedia.org/wiki/Chris_Stokel-Walker</a></li>
+<li>Sterling Jeffrey: <a href="https://en.wikipedia.org/wiki/Jeffrey_Alexander_Sterling">https://en.wikipedia.org/wiki/Jeffrey_Alexander_Sterling</a></li>
+<li>Hannah Storm: <a href="https://en.wikipedia.org/wiki/Hannah_Storm">https://en.wikipedia.org/wiki/Hannah_Storm</a></li>
+<li>Dena Takruri: <a href="https://en.wikipedia.org/wiki/Dena_Takruri">https://en.wikipedia.org/wiki/Dena_Takruri</a></li>
+<li>Galina Timchenko: <a href="https://en.wikipedia.org/wiki/Galina_Timchenko">https://en.wikipedia.org/wiki/Galina_Timchenko</a></li>
+<li>Nicole Tung: <a href="https://en.wikipedia.org/wiki/Nicole_Tung">https://en.wikipedia.org/wiki/Nicole_Tung</a></li>
+<li>Siddharth Varadarajan: <a href="https://en.wikipedia.org/wiki/Siddharth_Varadarajan">https://en.wikipedia.org/wiki/Siddharth_Varadarajan</a></li>
+<li>Rebecca Vincent: <a href="https://en.wikipedia.org/wiki/Rebecca_Vincent">https://en.wikipedia.org/wiki/Rebecca_Vincent</a></li>
+<li>Lauren Walsh: <a href="https://en.wikipedia.org/wiki/Lauren_Walsh">https://en.wikipedia.org/wiki/Lauren_Walsh</a></li>
+<li>Tracy Weber: <a href="https://en.wikipedia.org/wiki/Tracy_Weber">https://en.wikipedia.org/wiki/Tracy_Weber</a></li>
+<li>Amy Westervelt: <a href="https://en.wikipedia.org/wiki/Amy_Westervelt">https://en.wikipedia.org/wiki/Amy_Westervelt</a></li>
+<li>Rachel White: <a href="https://en.wikipedia.org/wiki/Rachel_White_(actress)">https://en.wikipedia.org/wiki/Rachel_White_(actress)</a></li>
+<li>Antonio Zappulla: <a href="https://en.wikipedia.org/wiki/Antonio_Zappulla">https://en.wikipedia.org/wiki/Antonio_Zappulla</a></li>
+</ol>
+</div>
+</div>
+</div>
+</body>
+</html>
