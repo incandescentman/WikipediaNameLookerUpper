@@ -32,8 +32,6 @@ Jonathan Heawood: https://en.wikipedia.org/wiki/Jonathan_Heawood
 Sophie Huet: https://en.wikipedia.org/wiki/Sophie_Huet
 Nicole Jackson: https://en.wikipedia.org/wiki/Nicole_Jackson
 Jameel Jaffer: https://en.wikipedia.org/wiki/Jameel_Jaffer
-Michael: https://en.wikipedia.org/wiki/Michael
-Jarjour: https://en.wikipedia.org/wiki/Riad_Jarjour
 Michael Jensen: https://en.wikipedia.org/wiki/Michael_Jensen
 Mitra Kalita: https://en.wikipedia.org/wiki/S._Mitra_Kalita
 Jensen Michael: https://en.wikipedia.org/wiki/Michael_C._Jensen
@@ -102,6 +100,7 @@ Evan Smith: https://en.wikipedia.org/wiki/Evan_Smith
 Marianna Spring: https://en.wikipedia.org/wiki/Marianna_Spring
 Jeffrey Sterling: https://en.wikipedia.org/wiki/Jeffrey_Sterling
 Chris Stokel-Walker: https://en.wikipedia.org/wiki/Chris_Stokel-Walker
+Sterling Jeffrey: https://en.wikipedia.org/wiki/Jeffrey_Alexander_Sterling
 Hannah Storm: https://en.wikipedia.org/wiki/Hannah_Storm
 Dena Takruri: https://en.wikipedia.org/wiki/Dena_Takruri
 Galina Timchenko: https://en.wikipedia.org/wiki/Galina_Timchenko
