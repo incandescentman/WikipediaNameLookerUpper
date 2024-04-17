@@ -19,7 +19,7 @@ https://github.com/incandescentman/WikipediaNameLookerUpper/blob/main/claude-tra
 ** Features
 - Reads a list of names from a text file
 - Searches for the existence of Wikipedia pages for each name using the Wikipedia API
-- Generates a file (~links.txt~) with the search results, indicating the presence or absence of a Wikipedia page for each name
+- Generates a file (~links.txt~) with the search results, indicating the presence or absence of a Wikipedia page for that name
 - Creates a file (~known-names.txt~) with a list of names that have Wikipedia pages and their corresponding URLs
 - Handles duplicate URLs by keeping only the first occurrence and removing subsequent duplicates
 
