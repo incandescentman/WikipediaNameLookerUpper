@@ -729,6 +729,7 @@ Juliana Ruhfus
 Aaron Rupar
 Vincent Ryan
 Gerard Ryle
+
 Laura Saarikoski
 Rudiger Johanna
 Ruhfus Juliana
@@ -736,83 +737,83 @@ Rupar Aaron
 Ryan Vincent
 Ryle Gerard
 Laura Saarikoski
-Rudiger Johanna head of social media strategy Deutsche Welle Culture & Documentaries
-Ruhfus Juliana director Dart Centre Europe
-Rupar Aaron publisher Public Notice newsletter
-Ryan Vincent global training manager Google News Lab
-Ryle Gerard director International Consortium of Investigative Journalists
-Saarikoski Laura editor-in-chief premium content The Helsingin Sanomat
+Rudiger Johanna
+Ruhfus Juliana
+Rupar Aaron
+Ryan Vincent
+Ryle Gerard
+Saarikoski Laura
 Rana Sabbagh
 Nina Sachdev
 Naveena Sadasivam
 Angela Saini
 Aphrodite Salas
 Maria Salazar Ferro
-Sabbagh Rana senior MENA investigations editor OCCRP
-Sachdev Nina director communications Media Impact Funders
-Sadasivam Naveena senior staff writer Grist
-Saini Angela journalist and author
-Salas Aphrodite Concordia University
-Salazar Ferro Maria director newsroom safety and resilience The New York Times
+Sabbagh Rana
+Sachdev Nina
+Sadasivam Naveena
+Saini Angela
+Salas Aphrodite
+Salazar Ferro Maria
 Suhaib Salem
 Nivine Sandouka
 Steve Sapienza
 Jack Sapoch
 Shayan Sardarizadeh
 Zoe Schiffer
-Salem Suhaib head of visuals Gaza Reuters News
-Sandouka Nivine chief of staff Alliance for Middle East Peace
-Sapienza Steve senior strategist Pulitzer Center
-Sapoch Jack OSINT investigator Lighthouse Reports
-Sardarizadeh Shayan BBC Verify
-Schiffer Zoe managing editor Platformer
+Salem Suhaib
+Sandouka Nivine
+Sapienza Steve
+Sapoch Jack
+Sardarizadeh Shayan
+Schiffer Zoe
 Anya Schiffrin
 Vivian Schiller
 Gregor Schmitz
 David Schraven
 Renate Schroeder
 Tim Sebastian
-Schiffrin Anya School of International and Public Affairs Columbia University
-Schiller Vivian VP and executive director Aspen Digital
-Schmitz Gregor editor-in-chief STERN magazine
-Schraven David publisher CORRECTIV
-Schroeder Renate director European Federation of Journalists
-Sebastian Tim host Conflict Zone Deutsche Welle
+Schiffrin Anya
+Schiller Vivian
+Schmitz Gregor
+Schraven David
+Schroeder Renate
+Sebastian Tim
 Natalie Sedletska
 Meera Selva
 Meera Senthilingam
 Barbara Serra
 Giovanni Severini
 Supriya Sharma
-Sedletska Natalie editor-in-chief and host Schemes
-Selva Meera chief executive Internews Europe
-Senthilingam Meera deputy editor As Equals CNN
-Serra Barbara TV presenter and documentary-maker
-Severini Giovanni principal group program manager Microsoft
-Sharma Supriya executive editor Scroll
+Sedletska Natalie
+Selva Meera
+Senthilingam Meera
+Serra Barbara
+Severini Giovanni
+Sharma Supriya
 Versha Sharma
 Daryna Shevchenko
 Dmitry Shishkin
 Yuval Shukroon
 Tyler Shultz
 Zlatina Siderova
-Sharma Versha editor-in-chief Teen Vogue
+Sharma Versha
 Shevchenko Daryna
 Shishkin Dmitry
-Shukroon Yuval Pinpoint product manager Google News Ecosystem
-Shultz Tyler whistleblower Theranos
-Siderova Zlatina programme lead European Journalism Centre
+Shukroon Yuval
+Shultz Tyler
+Siderova Zlatina
 Felix Simon
 Joel Simon
 Sybrig Smit
 Evan Smith
 Sophia Smith Galer
 'Fisayo Soyombo
-Simon Felix Oxford Internet Institute
+Simon Felix
 Simon Joel
-Smit Sybrig climate policy analyst NewClimate Institute
-Smith Evan senior adviser Emerson Collective
-Smith Galer Sophia journalist and content creator
+Smit Sybrig
+Smith Evan
+Smith Galer Sophia
 Soyombo 'Fisayo
 Marianna Spring
 Markus Stein
@@ -820,11 +821,11 @@ Jemimah Steinfeld
 Agnes Stenbom
 Jeffrey Sterling
 Chris Stokel-Walker
-Spring Marianna disinformation and social media correspondent BBC
-Stein Markus head of video Neue Zürcher Zeitung
-Steinfeld Jemimah editor-in-chief Index on Censorship
-Stenbom Agnes head of IN/LAB
-Sterling Jeffrey whistleblower CIA
+Spring Marianna
+Stein Markus
+Steinfeld Jemimah
+Stenbom Agnes
+Sterling Jeffrey
 Stokel-Walker Chris
 Hannah Storm
 Louise Story
@@ -833,10 +834,10 @@ Benjamin Strick
 Eduardo Suarez
 Lola Tagaeva
 Storm Hannah
-Story Louise media consultant
+Story Louise
 Stout Jen
-Strick Benjamin director of investigations Centre for Information Resilience
-Suarez Eduardo head of editorial Reuters Institute for the Study of Journalism
+Strick Benjamin
+Suarez Eduardo
 Tagaeva Lola
 Dena Takruri
 Hanaa Tameez
@@ -845,11 +846,11 @@ Mick ter Reehorst
 Emma Thomasson
 Galina Timchenko
 Takruri Dena
-Tameez Hanaa staff writer Nieman Journalism Lab Harvard University
+Tameez Hanaa
 Tattersall Nick
 ter Reehorst Mick
-Thomasson Emma media consultant
-Timchenko Galina co-founder and CEO Meduza
+Thomasson Emma
+Timchenko Galina
 Lina Timm
 Benjamin Toff
 Mirjana Tomic
@@ -857,8 +858,8 @@ Tshepo Tshabalala
 Nicole Tung
 Victoria Turk
 Timm Lina
-Toff Benjamin Hubbard School of Journalism and Mass Communication
-Tomic Mirjana Forum Journalismus und Medien
+Toff Benjamin
+Tomic Mirjana
 Tshabalala Tshepo
 Tung Nicole
 Turk Victoria
@@ -869,11 +870,11 @@ Mael Vallejo
 Karl van den Broeck
 Geesje van Haren
 Urlbauer Lisa
-Urner Maren HMKW University of Applied Sciences Cologne
+Urner Maren
 Valentine Sue
 Vallejo Mael
-van den Broeck Karl editor-in-chief Apache
-van Haren Geesje Lost in Europe
+van den Broeck Karl
+van Haren Geesje
 Suzanne Vanhooymissen
 Siddharth Varadarajan
 Sonam Vashi
@@ -894,8 +895,8 @@ Lauren Walsh
 Mary Walter-Brown
 Vinograd Alona
 Voinea Mihai
-von Daniels Justus editor-in-chief CORRECTIV
-Walls Kelly executive
+von Daniels Justus
+Walls Kelly
 Walsh Lauren
 Walter-Brown Mary
 Nick Waters
@@ -904,27 +905,21 @@ Tracy Weber
 Miriam Wells
 Amy Westervelt
 Rachel White
-Waters Nick open-source analyst Bellingcat
-Weber Joscha head of fact-checking Deutsche Welle
-Weber Tracy managing editor ProPublica
-Wells Miriam impact editor The Examination
+Waters Nick
+Weber Joscha
+Weber Tracy
+Wells Miriam
 Westervelt Amy
-White Rachel EVP philanthropic & strategic partnerships Guardian News & Media
+White Rachel
 Ben Whitelaw
 Penelope Winterhager
 Sarah Bishop Woods
 Annette Young
 Cindy Yu
 Olle Zachrison
-Whitelaw Ben manager FT Strategies
-Winterhager Penelope managing director JX Fund
-Woods Sarah Bishop
-Young Annette host The 51 Percent France 24
-Yu Cindy host podcast Chinese Whispers
-Zachrison Olle head of AI and news strategy Swedish Radio
 Jose Zamora
 Antonio Zappulla
 Annie Zhang
 Zamora Jose
 Zappulla Antonio
-Zhang Annie Nieman fellow Harvard University
+Zhang Annie
