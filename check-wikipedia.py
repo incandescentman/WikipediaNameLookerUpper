@@ -23,7 +23,7 @@ def get_wikipedia_url(name):
     return None
 
 # Read names from the text file
-with open('/Users/jay/Downloads/ijf/ijf.txt', 'r') as file:
+with open('/Users/jay/Downloads/ijf/names.txt', 'r') as file:
     names = file.readlines()
 
 # Remove trailing newline characters from each name
