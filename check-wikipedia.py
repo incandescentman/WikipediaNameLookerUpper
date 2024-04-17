@@ -10,10 +10,14 @@ def get_wikipedia_url(name):
             page_title = data['query']['search'][0]['title']
             page_url = f"https://en.wikipedia.org/wiki/{page_title.replace(' ', '_')}"
 
-            # Check if the first or last name appears in the page title
-            first_name, last_name = name.split(' ', 1)
-            if first_name.lower() in page_title.lower() or last_name.lower() in page_title.lower():
-                return page_url
+            # Check if the name contains a space
+            if ' ' in name:
+                first_name, last_name = name.split(' ', 1)
+                if first_name.lower() in page_title.lower() or last_name.lower() in page_title.lower():
+                    return page_url
+            else:
+                if name.lower() in page_title.lower():
+                    return page_url
     except KeyError:
         pass
     return None
