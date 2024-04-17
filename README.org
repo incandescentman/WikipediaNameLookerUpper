@@ -1,11 +1,6 @@
 
 * WikipediaNameLookerUpper
-[[https://github.com/incandescentman/tadpole/raw/main/images/unreliablenarrator_an_adorable_tree_frog_working_at_a_writing__7e86e2c5-c332-47a9-9af1-be5d1e454747.png][file:images/unreliablenarrator_an_adorable_tree_frog_working_at_a_writing__7e86e2c5-c332-47a9-9af1-be5d1e454747.png]]
-
-
-[[https://github.com/incandescentman/WikipediaNameLookerUpper/raw/main/wikisearch.webp][file:wikisearch.webp]]
-
-https://github.com/incandescentman/WikipediaNameLookerUpper
+[[https://github.com/incandescentman/WikipediaNameLookerUpper/raw/main/wikisearch.webp][file:wikisearch.png]]
 
 WikipediaNameLookerUpper is a Python script that checks if a list of names have corresponding Wikipedia pages. It takes a text file containing a list of names as input and uses the Wikipedia API to search for the existence of a page for each name. The script then generates two output files:
 
