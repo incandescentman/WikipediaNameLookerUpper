@@ -1,60 +1,42 @@
 
 * WikipediaNameLookerUpper
-WikipediaNameLookerUpper is a Python script that checks if a list of names have corresponding
-Wikipedia pages. It takes a text file containing a list of names as
-input and uses the Wikipedia API to search for the existence of a page
-for each name. The script then generates two output files:
+WikipediaNameLookerUpper is a Python script that checks if a list of names have corresponding Wikipedia pages. It takes a text file containing a list of names as input and uses the Wikipedia API to search for the existence of a page for each name. The script then generates two output files:
 
-1. ~links.txt~: This file contains the results of the search, indicating
-   whether each name has a Wikipedia page or not. If a page is found,
-   the corresponding Wikipedia URL is provided.
+1. ~links.txt~: This file contains the results of the search, indicating whether each name has a Wikipedia page or not. If a page is found, the corresponding Wikipedia URL is provided.
 
-2. ~known-names.txt~: This file contains a list of names that have
-   Wikipedia pages along with their respective URLs. If a URL appears
-   multiple times (i.e., if a name appears in different variations),
-   only the first occurrence is kept, and subsequent duplicates are
-   removed.
+2. ~known-names.txt~: This file contains a list of names that have Wikipedia pages along with their respective URLs. If a URL appears multiple times (i.e., if a name appears in different variations), only the first occurrence is kept, and subsequent duplicates are removed.
+
+I wrote this script (i.e. I made claude 3 write this script) as part of the [[https://www.wikiportraits.org/][WikiPortraits]] initiative.
+
+Here's Claude developing the code:
+https://github.com/incandescentman/WikipediaNameLookerUpper/blob/main/claude-transcript.org
 
 ** Features
 - Reads a list of names from a text file
-- Searches for the existence of Wikipedia pages for each name using the
-  Wikipedia API
-- Generates a file (~links.txt~) with the search results, indicating the
-  presence or absence of a Wikipedia page for each name
-- Creates a file (~known-names.txt~) with a list of names that have
-  Wikipedia pages and their corresponding URLs
-- Handles duplicate URLs by keeping only the first occurrence and
-  removing subsequent duplicates
+- Searches for the existence of Wikipedia pages for each name using the Wikipedia API
+- Generates a file (~links.txt~) with the search results, indicating the presence or absence of a Wikipedia page for each name
+- Creates a file (~known-names.txt~) with a list of names that have Wikipedia pages and their corresponding URLs
+- Handles duplicate URLs by keeping only the first occurrence and removing subsequent duplicates
 
 ** Requirements
-
 
 - Python 3.x
 - ~requests~ library (can be installed via ~pip install requests~)
 
 ** Usage
-
-
-1. Prepare a text file (~ijf.txt~) containing a list of names, with each
-   name on a separate line.
+1. Prepare a text file (~names.txt~) containing a list of names, with each name on a separate line.
 2. Update the file paths in the script to match your local setup:
 
    - ~input_file~: Path to the input file containing the list of names
    - ~output_file~: Path where the ~links.txt~ file will be generated
-   - ~known_names_file~: Path where the ~known-names.txt~ file will be
-     generated
+   - ~known_names_file~: Path where the ~known-names.txt~ file will be generated
 
 3. Run the script using Python:
-
 #+begin_example
    python check-wikipedia.py
 #+end_example
 
-4. The script will process the names, perform the Wikipedia search, and
-   generate the output files.
-5. Check the ~links.txt~ file for the search results and
-   the ~known-names.txt~ file for the list of names with Wikipedia pages
-   and their URLs.
+4. The script will process the names, perform the Wikipedia search, and generate the output files.
+5. Check the ~links.txt~ file for the search results and the ~known-names.txt~ file for the list of names with Wikipedia pages and their URLs.
 
-Feel free to contribute, provide feedback, or report any issues you
-encounter while using WikipediaPageChecker!
+Feel free to contribute, provide feedback, or report any issues you encounter while using WikipediaPageChecker!
