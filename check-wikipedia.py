@@ -1,11 +1,16 @@
-import wikipedia
+import requests
 
 def get_wikipedia_url(name):
+    url = f"https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch={name}&srlimit=1"
+    response = requests.get(url)
+    data = response.json()
+
     try:
-        page = wikipedia.page(name)
-        if page.title.lower() == name.lower():
-            return page.url
-    except (wikipedia.exceptions.DisambiguationError, wikipedia.exceptions.PageError):
+        if data['query']['search']:
+            page_title = data['query']['search'][0]['title']
+            page_url = f"https://en.wikipedia.org/wiki/{page_title.replace(' ', '_')}"
+            return page_url
+    except KeyError:
         pass
     return None
 
